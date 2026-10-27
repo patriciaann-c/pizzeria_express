@@ -1,4 +1,4 @@
-import mysql from "mysql2";
+import mysql from "mysql2/promise";
 
 const config = {
     host: process.env.DB_HOSTNAME,

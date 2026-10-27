@@ -22,10 +22,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// Registrazione del Router per le pizze (supporta sia /pizzas, sia /pizze, sia il vecchio /posts)
+// Registrazione del Router per le pizze
 app.use('/pizzas', pizzasRouter);
-app.use('/pizze', pizzasRouter);
-app.use('/posts', pizzasRouter);
 
 // Homepage di benvenuto della Pizzeria
 app.get('/', (req, res) => {
@@ -281,7 +279,7 @@ app.get('/api/pizze', (req, res, next) => {
 // Endpoint di ricerca pizza per nome o ingrediente: http://localhost:3000/ricerca?termine=margherita
 app.get('/ricerca', (req, res, next) => {
     const termine = req.query.termine || req.query.q || '';
-    
+
     if (!termine.trim()) {
         return res.status(400).send('<h1>Errore</h1><p>Specificare un parametro di ricerca: es. <code>/ricerca?termine=margherita</code></p>');
     }
@@ -295,7 +293,7 @@ app.get('/ricerca', (req, res, next) => {
         }
 
         if (req.accepts('html') && !req.xhr) {
-            const listHtml = results.length > 0 
+            const listHtml = results.length > 0
                 ? results.map(p => `<li><strong>${p.name}</strong> (${Number(p.price).toFixed(2)} &euro;): <em>${p.ingredients}</em></li>`).join('')
                 : '<li>Nessuna pizza trovata con questo termine.</li>';
 

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "code-comprehension-check": {
+      "source": "Samuel88/code-comprehension-check-skill",
+      "sourceType": "github",
+      "skillPath": "code-comprehension-check/SKILL.md",
+      "computedHash": "a6baf9974eccc5521a9f47474a76ca0479b028867f6c1522dd34d976741fa1a2"
+    }
+  }
+}
